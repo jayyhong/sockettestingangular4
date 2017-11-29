@@ -24,11 +24,12 @@ server.listen(port, err => {
   console.log("Server successfully connect on " + port);
 });
 
-io.on('connection', function (socket) {
-  console.log('socket connected');
+io.on('connection', (socket) => {
+  console.log('user connected');
 
   socket.on('new-message', (message) => {
-    console.log(message);
+    console.log(message)
+    io.emit('new-message', message);
   })
 
 })

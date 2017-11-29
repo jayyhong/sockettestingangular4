@@ -1,6 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
-  <input [(ngModel)] = "message"/>
-  <button (click)="sendMessage()"> Send </button>
+<div *ngFor="let message of messages">
+  <div>{{message}}</div>
 </div>
+  <input [(ngModel)] = "message" (keyup)="$event.keyCode === 13 && sendMessage() "/>
+  <button (click)="sendMessage()"> Send </button>
 
